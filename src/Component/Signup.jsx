@@ -9,6 +9,9 @@ const Signup = () => {
   });
   let navigate = useNavigate(); // useNavigate instead of useHistory
 
+  // back end url
+  const host = process.env.BACKEND_URL;
+
   // Handle change in form inputs
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -19,7 +22,7 @@ const Signup = () => {
     e.preventDefault();
 
     // API call to signup (replace with your API endpoint)
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+    const response = await fetch(`${host}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,11 +37,9 @@ const Signup = () => {
     const json = await response.json();
     console.log(json);
 
-   
-      // Save the auth token or other actions on success
-      localStorage.setItem("token", json.authtoken);
-      navigate("/"); // Use navigate instead of history.push
-   
+    // Save the auth token or other actions on success
+    localStorage.setItem("token", json.authtoken);
+    navigate("/"); // Use navigate instead of history.push
   };
 
   return (

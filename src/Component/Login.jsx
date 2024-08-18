@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  let navigate = useNavigate();  // useNavigate instead of useHistory
+  let navigate = useNavigate(); // useNavigate instead of useHistory
+  // back end url
+  const host = process.env.BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +24,7 @@ const Login = (props) => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem("token", json.authtoken);
-      navigate("/");  // Use navigate instead of history.push
+      navigate("/"); // Use navigate instead of history.push
     } else {
       alert("Invalid credentials");
     }
