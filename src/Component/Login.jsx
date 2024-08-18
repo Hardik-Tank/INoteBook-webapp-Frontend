@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  let navigate = useNavigate(); // useNavigate instead of useHistory
-  // back end url
-  const host = process.env.BACKEND_URL;
+  let navigate = useNavigate();  // useNavigate instead of useHistory
+  const host = "https://inotebook-webapp-backend.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +23,7 @@ const Login = (props) => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem("token", json.authtoken);
-      navigate("/"); // Use navigate instead of history.push
+      navigate("/");  // Use navigate instead of history.push
     } else {
       alert("Invalid credentials");
     }

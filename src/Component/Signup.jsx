@@ -8,9 +8,8 @@ const Signup = () => {
     password: "",
   });
   let navigate = useNavigate(); // useNavigate instead of useHistory
-
   // back end url
-  const host = process.env.BACKEND_URL;
+  const host = "https://inotebook-webapp-backend.onrender.com";
 
   // Handle change in form inputs
   const onChange = (e) => {
@@ -37,9 +36,11 @@ const Signup = () => {
     const json = await response.json();
     console.log(json);
 
-    // Save the auth token or other actions on success
-    localStorage.setItem("token", json.authtoken);
-    navigate("/"); // Use navigate instead of history.push
+   
+      // Save the auth token or other actions on success
+      localStorage.setItem("token", json.authtoken);
+      navigate("/"); // Use navigate instead of history.push
+   
   };
 
   return (

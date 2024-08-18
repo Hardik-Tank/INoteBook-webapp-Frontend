@@ -2,8 +2,7 @@ import { useState } from "react";
 import NoteContext from "./NoteContext";
 
 const NotesHooks = (props) => {
-   // back end url
-   const host = process.env.BACKEND_URL;
+  const host = "https://inotebook-webapp-backend.onrender.com";
   const notesInitial = []; // Initialize with an empty array
   const [notes, setNotes] = useState(notesInitial);
 
