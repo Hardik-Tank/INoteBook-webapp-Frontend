@@ -1,18 +1,18 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import NoteState from "./Context/Notes/NoteState";
 import Navbar from "./Component/Navbar";
 import { Home } from "./Component/Home";
 import About from "./Component/About";
 import { Alert } from "./Component/Alert";
 import Signup from "./Component/Signup";
 import Login from "./Component/Login";
+import NotesHooks from "./Context/Notes/NotesHooks";
 
 function App() {
   return (
     <>
-      <NoteState>
+      <NotesHooks>
         <Router>
           <Navbar />
           <Alert message="This is an amazing React course" />
@@ -25,7 +25,7 @@ function App() {
             </Routes>
           </div>
         </Router>
-      </NoteState>
+      </NotesHooks>
     </>
   );
 }

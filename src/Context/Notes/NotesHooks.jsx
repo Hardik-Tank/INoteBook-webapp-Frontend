@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NoteContext from "./NoteContext";
 
-const NoteState = (props) => {
+const NotesHooks = (props) => {
   const host = "http://localhost:5000";
   const notesInitial = []; // Initialize with an empty array
   const [notes, setNotes] = useState(notesInitial);
@@ -102,4 +102,4 @@ const NoteState = (props) => {
   );
 };
 
-export default NoteState;
+export default NotesHooks;
