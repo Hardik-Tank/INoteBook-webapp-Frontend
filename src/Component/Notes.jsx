@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Noteitem from "./Noteitem";
 import AddNote from "./AddNote";
-import noteContext from "../context/notes/noteContext";
+import noteContext from "../Context/Notes/NoteContext";
 import { useNavigate } from "react-router-dom";
 
 const Notes = () => {
@@ -156,11 +156,12 @@ const Notes = () => {
         <div className="container mx-2">
           {notes.length === 0 && "No notes to display"}
         </div>
-        {Array.isArray(notes) && notes.map((note) => {
-          return (
-            <Noteitem key={note._id} updateNote={updateNote} note={note} />
-          );
-        })}
+        {Array.isArray(notes) &&
+          notes.map((note) => {
+            return (
+              <Noteitem key={note._id} updateNote={updateNote} note={note} />
+            );
+          })}
       </div>
     </>
   );

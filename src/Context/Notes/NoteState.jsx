@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NoteContext from "./noteContext";
+import { NoteContext } from "./NoteContext";
 
 const NoteState = (props) => {
   const host = "http://localhost:5000";
@@ -14,12 +14,11 @@ const NoteState = (props) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": localStorage.getItem('token'), // Corrected token retrieval
+          "auth-token": localStorage.getItem("token"), // Corrected token retrieval
         },
       });
-      const json = await response
-        .json();
-        
+      const json = await response.json();
+
       if (Array.isArray(json)) {
         setNotes(json); // Set notes only if it's an array
       } else {
@@ -38,7 +37,7 @@ const NoteState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": localStorage.getItem('token'), // Corrected token retrieval
+          "auth-token": localStorage.getItem("token"), // Corrected token retrieval
         },
         body: JSON.stringify({ title, description, tag }),
       });
@@ -58,7 +57,7 @@ const NoteState = (props) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": localStorage.getItem('token'), // Corrected token retrieval
+          "auth-token": localStorage.getItem("token"), // Corrected token retrieval
         },
       });
 
@@ -77,7 +76,7 @@ const NoteState = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": localStorage.getItem('token'), // Corrected token retrieval
+          "auth-token": localStorage.getItem("token"), // Corrected token retrieval
         },
         body: JSON.stringify({ title, description, tag }),
       });
