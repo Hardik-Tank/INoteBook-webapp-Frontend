@@ -20,7 +20,7 @@ const NoteState = (props) => {
       const json = await response.json();
 
       if (Array.isArray(json)) {
-        setNotes(json); // Set notes only if it's an array
+        setNotes(json);
       } else {
         setNotes([]); // Fallback to an empty array if the response is not an array
       }
